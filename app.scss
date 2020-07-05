@@ -1,0 +1,15 @@
+// -> load core
+@import './scss/core/settings';
+@import './scss/core/mixins';
+@import './scss/core/extends';
+@import './scss/core/fonts';
+@import './scss/core/global';
+
+// -> load components
+@import './scss/components/pagination';
+@import './scss/components/loading';
+
+// -> load views
+@import './scss/views/header';
+@import './scss/views/products';
+@import './scss/views/footer';

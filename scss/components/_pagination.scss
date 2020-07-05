@@ -1,0 +1,77 @@
+.pagination {
+
+    @extend %flex-align-center;
+    margin: 0 auto;
+    position: relative;
+    width: auto;
+    max-width: 90vw;
+    margin-top: 50px;    
+
+    .pagination__content, .pagination__content--numbers {
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+
+        span:hover {
+            cursor: pointer;
+        }
+    }
+
+    .button {        
+        width: 30px;
+        height: 35px;  
+        color: $black;
+        font-weight: normal;
+        margin: 0 3px;
+        font-size: 15px;
+        line-height: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include transition(all .3s ease);
+        background-color: transparent;
+
+        @include media('md') {
+            margin: 0 5px;
+            width: 40px;
+            height: 40px;
+        }
+
+        &.active, &:hover {
+            background-color: $green;
+            color: $white;
+        }
+
+        &.opacity, &.opacity:hover, &.opacity:focus, 
+            &.opacity:active {
+            background-color: $gray-light;
+            color: $gray-100;
+            cursor: initial;
+            svg {
+                fill: $gray-100;
+            }
+        }
+
+        &.button--btn-prev, &.button--btn-next {
+            color: $black;
+            svg {
+                width: 10px;
+                height: 10px;
+            }
+            &:hover {
+                background-color: $green;
+                svg {
+                    fill: $white;
+                }
+            }         
+        }
+
+        &.button--btn-prev {
+            svg {
+                @include transform(rotate(180deg));
+            }
+        }
+  
+     }     
+
+  }  

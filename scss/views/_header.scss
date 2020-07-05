@@ -1,0 +1,188 @@
+header {
+
+    width: 100%;
+    border-bottom: 1px solid #eeeeee;
+    position: relative;
+
+    .menu-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;         
+        width: 100vw; 
+        height: 100vh;
+        background-color: rgba(0,0,0,.5);
+        @include transition(all .3s ease);        
+        animation: animationHideEffectMenu .5s forwards;
+
+        .menu-mobile__content {
+            width: 80vw;
+            height: 100vh;
+            background-color: $white;
+            position: relative;
+            @include transition(all .3s ease);            
+            animation: animationHideMenu .5s forwards;
+        }
+
+        &.active {            
+            animation: animationShowEffectMenu .5s forwards;
+            z-index: 10;                
+            .menu-mobile__content {
+                animation: animationShowMenu .5s forwards;                               
+            }        
+        }
+
+        svg {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            right: -30px;
+            top: 15px;
+            path {
+                fill: $green;
+            }
+        }
+        
+        ul {            
+            padding: 20px;
+
+            li {
+                @extend %flex-align-center;
+                padding: 15px;
+                border-top: 1px solid $gray-light;                
+                a {
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    @extend %font-menu-mobile;
+                    @include transition(opacity .3s ease);
+                }
+                &:hover {
+                    opacity: .7;                        
+                }
+                &.active {
+                    a {
+                        color: $green;
+                    }
+                }
+                &.active {
+                    a {
+                        color: $green;
+                    }
+                }
+                &:first-child {
+                    border-top: 0;
+                }
+                &:last-child {
+                    a {
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+
+        @extend %flex-align-center;
+        justify-content: space-between; 
+        padding: 20px 0;    
+        
+        img {
+            position: absolute;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
+
+        .container__icon-menu-mobile {
+
+            @extend %flex-align-center;
+            flex-direction: column;
+            display: block;
+            width: 24px;
+            height: 100%;
+    
+            @include media('lg') {
+                display: none;
+            }
+    
+            span {
+                display: block;
+                margin: 7px 0;
+                display: flex;
+                width: 100%;
+                height: 2px;
+                background-color: $black;
+            }
+        }
+
+        nav {
+            display: none;
+            @include media('lg') {
+                display: block;
+            }
+            ul {
+                @extend %flex-align-center;
+                li {
+                    @extend %flex-align-center;
+                    padding: 0 15px;
+                    a {
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        @extend %font-site;
+                        @include transition(opacity .3s ease);
+                    }
+                    &:hover {
+                        opacity: .7;                        
+                    }
+                    &.active {
+                        a {
+                            color: $green;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes animationShowEffectMenu {
+  from {
+      opacity: 0;
+      visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes animationHideEffectMenu {
+  from {
+      opacity: 1;
+      visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+@keyframes animationShowMenu {
+    from {        
+        transform: translate(-100vw);
+    }
+    to {
+        transform: translate(0vw);        
+    }
+}
+
+@keyframes animationHideMenu {
+  from {
+      transform: translate(0vw);
+  }
+  to {
+      transform: translate(-100vw);      
+  }
+}
+

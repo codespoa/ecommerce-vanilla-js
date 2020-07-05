@@ -1,0 +1,29 @@
+// criacao [ LOCAIS ]
+$fonts_location: "/assets/fonts/";
+$images_location: "../images/";
+$backgrounds_location: "#{$images_location}backgrounds/";
+$icons_location: "#{$images_location}icons/";
+
+// criacao [ PONTOS DE QUEBRA ]
+// min
+$breakpoints: (
+  "xxs": 350px,
+  "xs": 400px,
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1600px
+) !default;
+
+// project colors
+$white: #ffffff;
+$green:#92aa88;
+$gray-light: #e2e2e2;
+$gray-100: #c6c6c6;
+$gray-200: #eeeeee;
+$black: #333333;
+
+// cria o array de fonts separados por espaco
+// ex: "Proxima Nova" ProximaNova-Regular 400,
+$fonts: ();

@@ -1,0 +1,56 @@
+// MEDIA QUERYS BREAKPOINTS
+@mixin media($breakpoint, $size: min) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media only screen and (#{$size}-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// LETRA F
+@mixin font($font-name, $imp: false) {
+  font-family: #{$font-name}, Arial, sans-serif if($imp, !important, null);
+}
+
+// LETRA P
+@mixin placeholder {
+  @include optional-at-root("::-webkit-input-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root("::-moz-placeholder") {
+    @content;
+  }
+
+  @include optional-at-root(":-ms-input-placeholder") {
+    @content;
+  }
+}
+
+// LETRA T
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin transform($args...) {
+  -moz-transform: $args;
+  -o-transform: $args;
+  -ms-transform: $args;
+  -webkit-transform: $args;
+  transform: $args;
+}
+
+@mixin translate($x, $y) {
+  @include transform(translate($x, $y));
+}
